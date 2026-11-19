@@ -75,11 +75,19 @@ public class LoginView {
     private void handleLogin() {
         String error = controller.login(usernameField.getText(), passwordField.getText());
         if (error != null) {
-            messageLabel.setStyle("-fx-text-fill: #d32f2f; -fx-font-weight: bold;");
-            messageLabel.setText(error);
+            showMessage(error, false);
         } else {
-            messageLabel.setStyle("-fx-text-fill: #2e7d32; -fx-font-weight: bold;");
-            messageLabel.setText("Welcome, " + controller.getLoggedInName());
+            new DashboardView(stage, controller.createAccountController()).show();
+        }
+    }
+    // Display login messages
+    private void showMessage(String message, boolean success) {
+        messageLabel.setText(message);
+
+        if (success) {
+            messageLabel.setStyle("-fx-text-fill: green; -fx-font-size: 12px;");
+        } else {
+            messageLabel.setStyle("-fx-text-fill: red; -fx-font-size: 12px;");
         }
     }
 }

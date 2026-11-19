@@ -10,6 +10,8 @@ public class LoginController {
         Individual demo = new Individual("C001", "Bogolo", "Samoka", "Gaborone",
                 "75775398", "samokab@mail.com", "bogolo", "pw7577");
         new SavingsAccount("S001", "Rail Park Mall", demo, 1000);
+        new InvestmentAccount("I001", "Rail Park Mall", demo, 1000);
+        new ChequeAccount("Q001", "Rail Park Mall", demo, "BAC", "Gaborone");
         auth.register(demo);
     }
 
@@ -23,5 +25,9 @@ public class LoginController {
 
     public String getLoggedInName() {
         return auth.getLoggedIn().getDisplayName();
+    }
+
+    public AccountController createAccountController() {
+        return new AccountController(auth.getLoggedIn());
     }
 }
