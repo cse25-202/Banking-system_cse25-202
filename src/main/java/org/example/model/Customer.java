@@ -27,4 +27,6 @@ public abstract class Customer {
     public void setAddress(String address) { this.address = address; }
     public String getUsername() { return username; }
     public boolean checkPassword(String p) { return password.equals(p); }
+
+    public String getPassword() { return password; }
 }

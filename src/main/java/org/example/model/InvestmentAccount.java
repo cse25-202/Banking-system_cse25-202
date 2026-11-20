@@ -9,6 +9,10 @@ public class InvestmentAccount extends Account implements InterestBearing {
         deposit(openingDeposit);
     }
 
+    public InvestmentAccount(String accountNumber, String branch, Customer owner) {
+        super(accountNumber, branch, owner);
+    }
+
     private static Customer checkOpening(Customer owner, double openingDeposit) {
         if (openingDeposit < MIN_OPENING_DEPOSIT) {
             throw new IllegalArgumentException("Investment account needs an opening deposit of at least BWP500.00");

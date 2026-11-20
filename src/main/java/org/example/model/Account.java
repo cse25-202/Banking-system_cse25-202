@@ -52,4 +52,8 @@ public abstract class Account {
     public String getBranch() { return branch; }
     public Customer getOwner() { return owner; }
     public List<Transaction> getTransactions() { return transactions; }
+
+    // used only when loading an account from the database
+    public void restoreBalance(double balance) { this.balance = balance; }
+    public void restoreTransaction(Transaction t) { transactions.add(t); }
 }

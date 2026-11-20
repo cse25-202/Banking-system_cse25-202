@@ -15,6 +15,12 @@ public class Transaction {
         this.amount = amount;
         this.timestamp = LocalDateTime.now();
     }
+    public Transaction(int transactionID, String transactionType, double amount, LocalDateTime timestamp) {
+        this.transactionID = transactionID;
+        this.transactionType = transactionType;
+        this.amount = amount;
+        this.timestamp = timestamp;
+    }
 
     public int getTransactionID() { return transactionID; }
     public String getTransactionType() { return transactionType; }
